@@ -1,0 +1,105 @@
+<html>
+<head>
+<title>Titanic Survival </title>
+<style>
+body{
+background-image:url("C:/SunilProfileAllInone/1.upgradMaterials/1.All In one Models/27.E2E Projects/1.Titanic E2E Project/static/titanic.jpg");
+background-size:cover;
+}
+
+form{
+text-align:center
+}
+
+input{
+width:30%
+}
+
+input[type=submit]{
+background-color:green;
+color:white;
+width:10%;
+}
+select{
+width:30%;
+}
+
+label{
+font-size:20px;
+display:inline-block;
+width:240px;
+color:blue;
+text-align:left;
+ padding: 1px;
+ background-color:#e7e7e7;
+}
+</style>
+</head>
+<body>
+<br></br>
+<center><h1> RMS Titanic Survival Prediction:{{results}}<h1></center>
+<form method="post" action="{{ url_for('predict')}}">
+
+<label for="fname">First Name</label>
+<input type="text" id="fnam" name="fn" required='required' placeholder="Enter First Number">
+<br></br>
+
+<label for="pclass">Passenger Class</label>
+<select id="pclass" name="pclass">
+<option value="1"> First </option>
+<option value="2"> Second </option>
+<option value="3"> Third </option>
+</select>
+<br></br>
+
+<label for="sex">Gender</label>
+<select id="sex" name="sex">
+<option value="1">Male</option>
+<option value="0">FeMale</option>
+</select>
+<br></br>
+
+<label for="age">Age</label>
+<input type="text" id="age" name="age" required="required" placeholder="Enter the age.."/>
+<br></br>
+
+<label for = "spouse">Spouse On Board</label>
+<select id="spouse" name="spouse">
+      <option value="1">Yes</option>
+      <option value="0">No</option>
+</select>
+<br></br>
+<label for = "sib">Number of Siblings on board</label>
+<input type = 'text' id = 'sib', name = 'sib', required = 'required', placeholder = 'Enter a number...' />
+<br></br>
+
+<label for = "par">Number of parents on board</label>
+<input type = 'text' id = 'par', name = 'par', required = 'required', placeholder = 'Enter a number...' />
+
+<br></br>
+
+<label for = "child">Number of children on board</label>
+<input type = 'text' id = 'child', name = 'child', required = 'required', placeholder = 'Enter a number...' />
+
+
+<br></br>
+
+<label for = "fare">Fare</label>
+<input type = 'text' id = 'fare', name = 'fare', required = 'required', placeholder = 'Enter Fare Amount...' />
+
+
+<br></br>
+<label for="embarked">Embarked</label>
+<select id="embarked" name="embarked">
+      <option value="0">Southampton</option>
+      <option value="1">Cherbourg</option>
+      <option value="2">Queenstown</option>
+</select>
+<br></br>
+
+<label></label>
+<input id="submit" type="submit" value="Predict"></input>
+
+</form>
+</body>
+</html>
