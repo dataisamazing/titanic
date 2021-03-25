@@ -35,9 +35,7 @@ def predict():
 		out = "Error"
 		if pred ==1:out = "Survived"
 		else: out = "Didn't Survived"
-	        worksheet.append_row([name, out])
-			
-		
+	        worksheet.append_row([name,out])
 		return render_template('index.html', results = out)
 	else:
 		return render_template('index.html')
