@@ -1,11 +1,11 @@
 
 from flask import *
 import pickle
-import gspread
+#import gspread
 
-gc = gspread.service_account(filename = "cred.json")
-sh = gc.open_by_key("1iuOu0LxrhrYD3yoIS_FWliAH2ZwZ8urpnE1siri3ABU")
-worksheet = sh.sheet1
+#gc = gspread.service_account(filename = "cred.json")
+#sh = gc.open_by_key("1iuOu0LxrhrYD3yoIS_FWliAH2ZwZ8urpnE1siri3ABU")
+#worksheet = sh.sheet1
 app = Flask(__name__, static_url_path='/static')
 model = pickle.load(open('random_forest_titanic_model.pkl', 'rb'))
 @app.route('/')
@@ -32,7 +32,7 @@ def predict():
 		out = "Error"
 		if pred ==1:out = "Survived"
 		else: out = "Didn't Survived"
-	        worksheet.append_row([name,out])
+	        #worksheet.append_row([name,out])
 		return render_template('index.html', results = out)
 	else:
 		return render_template('index.html')		
