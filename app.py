@@ -5,9 +5,7 @@ import gspread
 
 gc = gspread.service_account(filename = "cred.json")
 sh = gc.open_by_key("1iuOu0LxrhrYD3yoIS_FWliAH2ZwZ8urpnE1siri3ABU")
-worksheet = sh.sheet1	
-
-
+worksheet = sh.sheet1
 app = Flask(__name__, static_url_path='/static')
 model = pickle.load(open('random_forest_titanic_model.pkl', 'rb'))
 @app.route('/')
@@ -28,8 +26,7 @@ def predict():
 		sibsp = sp+sib
 		parch = par+child
 		fare = float(request.form['fare'])
-		embarked= int(request.form['embarked'])
-		
+		embarked= int(request.form['embarked'])		
 		prediction = model.predict([[pclass, gender, age, sibsp, parch, fare, embarked]])
 		pred = prediction[0]
 		out = "Error"
@@ -38,9 +35,7 @@ def predict():
 	        worksheet.append_row([name,out])
 		return render_template('index.html', results = out)
 	else:
-		return render_template('index.html')
-		
-		
+		return render_template('index.html')		
 
 if __name__ == "__main__":
 	app.run(debug = True)
